@@ -1,8 +1,13 @@
-<table class="ow_automargin ow_std_margin">
-    <tr>
-        <td style="text-align: right;">
-            <span style="font-size: 9px;line-height:9px;">{text key="ads+ads_label"}</span>
-            <div style="text-align: center;">{$code}</div>
-        </td>
-    </tr>
-</table>
+{style}
+.ow_ads_cont{
+    display:inline-block;
+}
+.ow_ads_label{
+    font-size: 9px;
+    line-height:9px;
+}
+{/style}
+<div class="ow_automargin ow_std_margin ow_txtright">
+    <span class="ow_ads_label">{text key="ads+ads_label"}</span>
+    <div class="ow_txtcenter"><div class="ow_ads_cont">{$code}</div></div>
+</div>
