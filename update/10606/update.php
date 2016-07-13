@@ -44,6 +44,11 @@ try
         $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipFrom` bigint UNSIGNED";
         $dbo->query($query);
     }
+    else
+    {
+        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` CHANGE `ipFrom` `ipFrom` bigint UNSIGNED";
+        $dbo->query($query);
+    }
 }
 catch (Exception $e)
 {
@@ -58,6 +63,11 @@ try
     if ( !$column )
     {
         $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipTo` bigint UNSIGNED";
+        $dbo->query($query);
+    }
+    else
+    {
+        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` CHANGE `ipTo` `ipTo` bigint UNSIGNED";
         $dbo->query($query);
     }
 }
