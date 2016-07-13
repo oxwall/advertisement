@@ -41,7 +41,7 @@ try
 
     if ( !$column )
     {
-        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipFrom` VARCHAR(200)";
+        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipFrom` bigint UNSIGNED";
         $dbo->query($query);
     }
 }
@@ -57,7 +57,7 @@ try
 
     if ( !$column )
     {
-        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipTo` VARCHAR(200)";
+        $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD `ipTo` bigint UNSIGNED";
         $dbo->query($query);
     }
 }
@@ -65,3 +65,16 @@ catch (Exception $e)
 {
     $logger->addEntry(json_encode($e));
 }
+
+// add index
+try
+{
+    $query = "ALTER TABLE `{$tblPrefix}base_geolocation_ip_to_country` ADD INDEX `ipRange` (`ipFrom`, `ipTo`)";
+    $dbo->query($query);
+
+}
+catch (Exception $e)
+{
+    $logger->addEntry(json_encode($e));
+}
+
