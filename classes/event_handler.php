@@ -61,13 +61,13 @@ class ADS_CLASS_EventHandler
 
     public function addPageTopBanner( BASE_CLASS_EventCollector $event )
     {
-        $cmp = new ADS_CMP_Ads(array('position' => 'top'));
+        $cmp = OW::getClassInstance('ADS_CMP_Ads', ['position' => 'top']);
         $event->add($cmp->render());
     }
 
     public function addPageBottomBanner( BASE_CLASS_EventCollector $event )
     {
-        $cmp = new ADS_CMP_Ads(array('position' => 'bottom'));
+        $cmp = OW::getClassInstance('ADS_CMP_Ads', ['position' => 'bottom']);
         $event->add($cmp->render());
     }
 
