@@ -44,7 +44,7 @@ class ADS_CMP_SidebarAds extends BASE_CLASS_Widget
     {
         parent::__construct();
 
-        $cmp = new ADS_CMP_Ads(array('position' => 'sidebar'));
+        $cmp = OW::getClassInstance('ADS_CMP_Ads', ['position' => 'sidebar']);
 
         if ( !$cmp->isVisible() )
         {
